@@ -538,6 +538,11 @@ else
 
 endif
 
+# webOS
+ifneq (,$(or $(findstring webos,$(CROSS_COMPILE)),$(findstring starfish,$(CROSS_COMPILE))))
+	CFLAGS += -D_GNU_SOURCE
+endif
+
 include Makefile.common
 
 ifeq (,$(findstring msvc,$(platform)))
